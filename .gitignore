@@ -440,3 +440,4 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 >>>>>>> 4f6f9894184bdf7d94446a9d7c6b0ff70da1351c
+sh.exe.stackdump
