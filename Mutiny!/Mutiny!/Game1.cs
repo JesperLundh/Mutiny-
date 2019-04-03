@@ -4,14 +4,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Mutiny_
 {
-    
     public class Game1 : Game
+        //Grundläggande kod för att hantera Playerklassen skapad av Sara
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         Player player;
-        Vector2 startPos;
+        Point startPos;
         Texture2D playerTex;
         KeyboardState currentKeyboardState;
         KeyboardState oldKeyboardState;
@@ -33,8 +33,8 @@ namespace Mutiny_
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            startPos = new Vector2(100, 100);
-            playerTex = Content.Load<Texture2D>(@"player very simple");
+            startPos = new Point(100, 100);
+            playerTex = Content.Load<Texture2D>(@"PlayerSimpleSheet");
             spriteFont = Content.Load<SpriteFont>(@"spriteFont");
             player = new Player(playerTex, startPos, spriteFont);
             
@@ -51,7 +51,7 @@ namespace Mutiny_
                 Exit();
             oldKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();
-            player.Update(currentKeyboardState, oldKeyboardState);
+            player.Update(currentKeyboardState, oldKeyboardState, gameTime);
 
 
 

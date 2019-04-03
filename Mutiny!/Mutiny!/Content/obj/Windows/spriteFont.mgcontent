@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/Skola/Mutinee/Mutiny--master/Mutiny--master/Mutiny!/Mutiny!/Content/spriteFont.spritefont</SourceFile>
-  <SourceTime>2017-03-01T16:05:30+01:00</SourceTime>
-  <DestFile>E:/Skola/Mutinee/Mutiny--master/Mutiny--master/Mutiny!/Mutiny!/Content/bin/Windows/spriteFont.xnb</DestFile>
-  <DestTime>2019-03-29T11:29:50+01:00</DestTime>
+  <SourceFile>E:/Skola/Mutinee/Inte mitt/Mutiny--master/Mutiny--master/Mutiny!/Mutiny!/Content/spriteFont.spritefont</SourceFile>
+  <SourceTime>2019-04-03T01:01:08+02:00</SourceTime>
+  <DestFile>E:/Skola/Mutinee/Inte mitt/Mutiny--master/Mutiny--master/Mutiny!/Mutiny!/Content/bin/Windows/spriteFont.xnb</DestFile>
+  <DestTime>2019-04-03T10:10:18+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
