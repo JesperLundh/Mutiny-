@@ -15,11 +15,14 @@ namespace Mutiny_
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         MapManager mapManager;
+        Tile[,] mapGrid;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferHeight = 8 * 64;
+            graphics.PreferredBackBufferWidth = 12 * 64;
         }
         
         protected override void Initialize()
@@ -30,9 +33,9 @@ namespace Mutiny_
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Texture2D islandMap1 = Content.Load<Texture2D>("islandMap1");
-            Texture2D mapSpriteSheet = Content.Load<Texture2D>("mapSpriteSheet");
-            mapManager = new MapManager(islandMap1, mapSpriteSheet);
+            Texture2D IslandTiles = Content.Load<Texture2D>("islandTiles");
+            mapManager = new MapManager(IslandTiles);
+            mapGrid = mapManager.Mapbuilder();
         }
 
         protected override void UnloadContent()
@@ -50,9 +53,14 @@ namespace Mutiny_
         
         protected override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+            foreach (Tile tile in mapGrid)
+            {
+                tile.Draw(spriteBatch);
+            }
             base.Draw(gameTime);
+            spriteBatch.End();
         }
     }
 }
