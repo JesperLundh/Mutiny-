@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,7 +9,13 @@ namespace Mutiny_
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        MapManager mapManager;
+
+        Player player;
+        Vector2 startPos;
+        Texture2D playerTex;
+        KeyboardState currentKeyboardState;
+        KeyboardState oldKeyboardState;
+        SpriteFont spriteFont;
 
         public Game1()
         {
@@ -25,14 +26,18 @@ namespace Mutiny_
         protected override void Initialize()
         {
             base.Initialize();
+            
+            currentKeyboardState = Keyboard.GetState();
         }
         
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Texture2D islandMap1 = Content.Load<Texture2D>("islandMap1");
-            Texture2D mapSpriteSheet = Content.Load<Texture2D>("mapSpriteSheet");
-            mapManager = new MapManager(islandMap1, mapSpriteSheet);
+            startPos = new Vector2(100, 100);
+            playerTex = Content.Load<Texture2D>(@"player very simple");
+            spriteFont = Content.Load<SpriteFont>(@"spriteFont");
+            player = new Player(playerTex, startPos, spriteFont);
+            
         }
 
         protected override void UnloadContent()
@@ -44,6 +49,11 @@ namespace Mutiny_
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            oldKeyboardState = currentKeyboardState;
+            currentKeyboardState = Keyboard.GetState();
+            player.Update(currentKeyboardState, oldKeyboardState);
+
+
 
             base.Update(gameTime);
         }
@@ -51,7 +61,10 @@ namespace Mutiny_
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+            spriteBatch.Begin();
+            player.Draw(spriteBatch);
+
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
