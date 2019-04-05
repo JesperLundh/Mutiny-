@@ -83,3 +83,5 @@ E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutin
 E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\obj\x86\Debug\Mutiny!.pdb
 E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\WheelCactus tex.xnb
 E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\hurtboxgraphic.xnb
+E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\islandMap1.xnb
+E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\islandTiles.xnb
