@@ -9,23 +9,24 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Mutiny_
 {
+    //Jesper Lundhs arbete
     class Tile
     {
         Rectangle spreadSheetRectangle, screenRectangle;
         Texture2D overWorldMap;
-        Vector2 pos;
+        Vector2 drawPos;
 
-        public Tile(Rectangle spreadSheetRectangle, Texture2D overWorldMap, Vector2 pos)
+        public Tile(Rectangle spreadSheetRectangle, Texture2D overWorldMap, Vector2 drawPos, int tileSize)
         {
             this.spreadSheetRectangle = spreadSheetRectangle;
             this.overWorldMap = overWorldMap;
-            this.pos = pos;
-            screenRectangle = new Rectangle((int)pos.X, (int)pos.Y, (int)pos.X + 64, (int)pos.Y + 64);
+            this.drawPos = drawPos;
+            screenRectangle = new Rectangle((int)drawPos.X, (int)drawPos.Y, tileSize, tileSize);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(overWorldMap, pos, spreadSheetRectangle, Color.White, 0, new Vector2(0,0), 0.5f, SpriteEffects.None, 0);
+            spriteBatch.Draw(overWorldMap, screenRectangle, spreadSheetRectangle, Color.White);
         }
 
     }

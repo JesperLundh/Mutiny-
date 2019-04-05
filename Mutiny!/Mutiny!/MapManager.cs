@@ -10,29 +10,29 @@ using System.IO;
 
 namespace Mutiny_
 {
-    //använd bitmap? hanterar den initiella skapelsen av vår värld och alla gameobjekt
-    // ifall vi använder bitmap så måste vi skriva kod för att läsa av varje pixel, titta på dess färg, och sen använda
-    // det för att ladda in en specific tile/fiende/spelare
-    // man använder inte bitmap, man använder Texture2D, men det borde fungera likadant
+    // Jesper Lundhs arbete
     class MapManager
 
     {
-        Rectangle tile_a, tile_b, tile_c, tile_d, tile_e;
+        Rectangle drawRectangle_a, drawRectangle_b, drawRectangle_c, drawRectangle_d, drawRectangle_e;
         Texture2D islandTiles;
-        public MapManager(Texture2D islandTiles)
+        int tileSize, tileAmountWidth, tileAmountHeight;
+        public MapManager(Texture2D islandTiles, int tileSize, int tileAmountWidth, int tileAmountHeight)
         {
             this.islandTiles = islandTiles;
-
+            this.tileSize = tileSize;
+            this.tileAmountWidth = tileAmountWidth;
+            this.tileAmountHeight = tileAmountHeight;
             SetMapVariables();
         }
 #region Loading Variables for Tiles
         void SetMapVariables()
         {
-            tile_a = new Rectangle(0, 0, 64, 64);
-            tile_b = new Rectangle(64, 0, 64, 64);
-            tile_c = new Rectangle(128, 0, 64, 64);
-            tile_d = new Rectangle(192, 0, 64, 64);
-            tile_e = new Rectangle(256, 0, 64, 64);
+            drawRectangle_a = new Rectangle(0, 0, tileSize, tileSize);
+            drawRectangle_b = new Rectangle(tileSize, 0, tileSize, tileSize);
+            drawRectangle_c = new Rectangle(tileSize*2, 0, tileSize, tileSize);
+            drawRectangle_d = new Rectangle(tileSize*3, 0, tileSize, tileSize);
+            drawRectangle_e = new Rectangle(tileSize*4, 0, tileSize, tileSize);
         }
         #endregion
 
@@ -48,35 +48,40 @@ namespace Mutiny_
             }
             sr.Close();
             Tile[,] tiles = new Tile[strings[0].Length, strings.Count];
-
+            //försökte effektivisera detta arbete, finns en övning på detta i supermario projektet, ska titta på det
             for (int i = 0; i < tiles.GetLength(1); i++)
             {
                 for (int j = 0; j < tiles.GetLength(0); j++)
                 {
                     if (strings[i][j] == 'a')
                     {
-                        tiles[j, i] = new Tile(tile_a, islandTiles, new Vector2(32 * j, 32 * i));
+                        Rectangler(drawRectangle_a, i, j, tiles);
                     }
                     else if (strings[i][j] == 'b')
                     {
-                        tiles[j, i] = new Tile(tile_b, islandTiles, new Vector2(32 * j, 32 * i));
+                        Rectangler(drawRectangle_b, i, j, tiles);
                     }
                     else if (strings[i][j] == 'c')
                     {
-                        tiles[j, i] = new Tile(tile_c, islandTiles, new Vector2(32 * j, 32 * i));
+                        Rectangler(drawRectangle_c, i, j, tiles);
                     }
                     else if (strings[i][j] == 'd')
                     {
-                        tiles[j, i] = new Tile(tile_d, islandTiles, new Vector2(32 * j, 32 * i));
+                        Rectangler(drawRectangle_d, i, j, tiles);
                     }
                     else if (strings[i][j] == 'e')
                     {
-                        tiles[j, i] = new Tile(tile_e, islandTiles, new Vector2(32 * j, 32 * i));
+                        Rectangler(drawRectangle_e, i, j, tiles);
                     }
                 }
             }
             return tiles;
         }
-        #endregion
+        #endregion       
+
+        private void Rectangler(Rectangle drawRectangle, int i, int j, Tile[,] tiles)
+        {
+            tiles[j, i] = new Tile(drawRectangle, islandTiles, new Vector2(tileSize * j, tileSize * i), tileSize);
+        }
     }
 }

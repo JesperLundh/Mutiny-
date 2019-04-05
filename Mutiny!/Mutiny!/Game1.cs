@@ -21,8 +21,6 @@ namespace Mutiny_
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 8 * 64;
-            graphics.PreferredBackBufferWidth = 12 * 64;
         }
         
         protected override void Initialize()
@@ -32,9 +30,17 @@ namespace Mutiny_
         
         protected override void LoadContent()
         {
+            //dessa tre integers ändrar du på om du ändrat tilestorleken, eller mängden tiles
+            int tileSize = 32;
+            int screenWidth = 24;
+            int screenHeight = 16;
+            int tileAmountWidth = 5;
+            int tileAmountHeight = 1;
+            graphics.PreferredBackBufferHeight = screenHeight * tileSize;
+            graphics.PreferredBackBufferWidth = screenWidth * tileSize;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Texture2D IslandTiles = Content.Load<Texture2D>("islandTiles");
-            mapManager = new MapManager(IslandTiles);
+            mapManager = new MapManager(IslandTiles, tileSize, tileAmountWidth, tileAmountHeight);
             mapGrid = mapManager.Mapbuilder();
         }
 
