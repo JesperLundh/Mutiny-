@@ -133,6 +133,14 @@ namespace Mutiny_
                 speed.Y = 0;
 
             }
+            if (currentKeyboardState.IsKeyDown(Keys.Space))
+            {
+                Attack();
+            }
+            else
+            {
+                hurtbox = new Rectangle(0, 0, 0, 0);
+            }
         }
 
         private void Animate()
@@ -149,14 +157,6 @@ namespace Mutiny_
             if (sourceRect.X > 200)
             {
                 sourceRect.X = sourceRect.Width;
-            }
-            if (currentKeyboardState.IsKeyDown(Keys.Space))
-            {
-                Attack();
-            }
-            else
-            {
-                hurtbox = new Rectangle(0, 0, 0, 0);
             }
         }
         public void Die()

@@ -25,9 +25,6 @@ namespace Mutiny_
         List<Enemy> enemies;
         WheelCactus testWheelCactus;
         Texture2D hurtTex;
-        Player player;
-        Point startPos;
-
         MapManager mapManager;
         Tile[,] mapGrid;
 
@@ -111,8 +108,6 @@ namespace Mutiny_
             spriteBatch.End();
             base.Draw(gameTime);
         }
-    }
-}
         private void EnemyHurtCheck()
         {
             foreach (Enemy e in enemies)
