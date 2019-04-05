@@ -11,16 +11,21 @@ namespace Mutiny_
 {
     //Skapad av Jesper. Kod för att röra på sig och hantera facing skriven av Sara
     //Animation fixad av Sara
+    //Hitboxes, hurtboxes och attacker fixade av Sara
     class Player
     {
         Point pos;
         Rectangle destRect;
         Rectangle sourceRect;
+        Rectangle hitbox;
         double frameTimer;
         double frameInterval;
         Point speed;
         Texture2D tex;
         SpriteFont spriteFont;
+        public Rectangle hurtbox = new Rectangle (0, 0, 0, 0);
+        Texture2D hurtTex;
+
         enum Facing
         {
             Up,
@@ -33,15 +38,16 @@ namespace Mutiny_
         bool walkingHorizontally = false;
         bool walkingAtAll = false;
 
-
-        public Player (Texture2D tex, Point pos, SpriteFont spriteFont)
+        public Player (Texture2D tex, Point pos, SpriteFont spriteFont, Texture2D hurtTex)
         {
+            this.hurtTex = hurtTex;
             this.pos = pos;
+            this.tex = tex;
+            this.spriteFont = spriteFont;
             destRect = new Rectangle(pos.X, pos.Y, 100, 150);
             sourceRect = new Rectangle(0, 0, 100, 150);
-            this.tex = tex;
+            hitbox = destRect;
             speed = new Point(0, 0);
-            this.spriteFont = spriteFont;
             facing = Facing.Down;
             frameInterval = 500;
             frameTimer = frameInterval;
@@ -55,9 +61,9 @@ namespace Mutiny_
             destRect.X = pos.X - (destRect.Width/2);
             destRect.Y = pos.Y - (destRect.Height/2);
         }
-        public void Draw (SpriteBatch sb)
+
+        public void Draw (SpriteBatch spriteBatch)
         {
-            sb.Draw(tex, destRect, sourceRect, Color.White);
             switch (facing)
             {
                 case Facing.Down:
@@ -75,10 +81,13 @@ namespace Mutiny_
                 case Facing.Up:
                     facingText = "up";
                     sourceRect.Y = 150;
-                    break;
+                    break;                    
             }
-            sb.DrawString(spriteFont, facingText, new Vector2(pos.X, pos.Y), Color.White);
+            spriteBatch.Draw(tex, destRect, sourceRect, Color.White);
+            spriteBatch.DrawString(spriteFont, facingText, new Vector2(pos.X, pos.Y), Color.White);
+            spriteBatch.Draw(hurtTex, hurtbox, Color.White);
         }
+        
         private void PlayerInput(KeyboardState currentKeyboardState, KeyboardState oldKeyboardState)
         {
             walkingAtAll = false;
@@ -125,6 +134,7 @@ namespace Mutiny_
 
             }
         }
+
         private void Animate()
         {
             if (!walkingAtAll)
@@ -140,6 +150,47 @@ namespace Mutiny_
             {
                 sourceRect.X = sourceRect.Width;
             }
+            if (currentKeyboardState.IsKeyDown(Keys.Space))
+            {
+                Attack();
+            }
+            else
+            {
+                hurtbox = new Rectangle(0, 0, 0, 0);
+            }
+        }
+        public void Die()
+        {
+            pos = new Point(50, 50);
+        }
+        public void EnemyCollisionCheck(List<Enemy> enemyList)
+        {
+            foreach (Enemy e in enemyList)
+            {
+                if (e.hurtbox.Intersects(hitbox))
+                {
+                    Die();
+                }
+            }
+        }
+        public void Attack()
+        {
+            switch (facing)
+            {
+                case Facing.Down:
+                    hurtbox = new Rectangle(pos.X - 15, pos.Y, 30, 100);
+                    break;
+                case Facing.Left:
+                    hurtbox = new Rectangle(pos.X - 100, pos.Y - 15, 100, 30);
+                    break;
+                case Facing.Right:
+                    hurtbox = new Rectangle(pos.X, pos.Y - 15, 100, 30);
+                    break;
+                case Facing.Up:
+                    hurtbox = new Rectangle(pos.X - 15, pos.Y, 30, 100);
+                    break;
+            }
+
         }
     }
 }
