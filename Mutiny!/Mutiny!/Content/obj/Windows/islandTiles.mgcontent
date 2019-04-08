@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>E:/Skola/Mutinee/Inte mitt/Mutiny--Development/Mutiny--Development/Mutiny!/Mutiny!/Content/islandTiles.png</SourceFile>
-  <SourceTime>2019-04-05T02:44:48+02:00</SourceTime>
+  <SourceTime>2019-04-05T04:54:06+02:00</SourceTime>
   <DestFile>E:/Skola/Mutinee/Inte mitt/Mutiny--Development/Mutiny--Development/Mutiny!/Mutiny!/Content/bin/Windows/islandTiles.xnb</DestFile>
-  <DestTime>2019-04-05T11:51:06+02:00</DestTime>
+  <DestTime>2019-04-08T13:38:12+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
