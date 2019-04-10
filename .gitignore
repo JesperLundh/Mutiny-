@@ -441,3 +441,5 @@ healthchecksdb
 MigrationBackup/
 >>>>>>> 4f6f9894184bdf7d94446a9d7c6b0ff70da1351c
 sh.exe.stackdump
+Mutiny!/Mutiny!/obj/x86/Debug/Mutiny!.csproj.CoreCompileInputs.cache
+*.cache
