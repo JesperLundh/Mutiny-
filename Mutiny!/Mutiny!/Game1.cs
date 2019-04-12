@@ -17,16 +17,13 @@ namespace Mutiny_
         SpriteBatch spriteBatch;
         Player player;
         Point playerStartPos;
-        Texture2D playerTex;
-        Texture2D wheelCactusTex;
-        KeyboardState currentKeyboardState;
-        KeyboardState oldKeyboardState;
+        Texture2D playerTex, wheelCactusTex, hurtTex;
+        KeyboardState currentKeyboardState, oldKeyboardState;
         SpriteFont spriteFont;
         List<Enemy> enemies;
         WheelCactus testWheelCactus;
-        Texture2D hurtTex;
         MapManager mapManager;
-        Tile[,] mapGrid;
+        Tile[,] mapBackground, mapForeground;
 
         public Game1()
         {
@@ -55,15 +52,16 @@ namespace Mutiny_
             graphics.PreferredBackBufferWidth = screenWidth * tileSize;
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            playerTex = Content.Load<Texture2D>(@"PlayerSimpleSheet");
+            playerTex = Content.Load<Texture2D>(@"playerSimpleSheet");
             spriteFont = Content.Load<SpriteFont>(@"spriteFont");
             hurtTex = Content.Load<Texture2D>(@"hurtboxgraphic");
-            Texture2D IslandTiles = Content.Load<Texture2D>("islandTiles");
+            Texture2D IslandTiles = Content.Load<Texture2D>("mapSpriteSheet");
             wheelCactusTex = Content.Load<Texture2D>(@"WheelCactus tex");
 
             player = new Player(playerTex, playerStartPos, spriteFont, hurtTex);
             mapManager = new MapManager(IslandTiles, tileSize, tileAmountWidth, tileAmountHeight);
-            mapGrid = mapManager.Mapbuilder();        
+            mapBackground = mapManager.MapBackgroundBuilder();
+            mapForeground = mapManager.MapForegroundBuilder();
             testWheelCactus = new WheelCactus(wheelCactusTex, new Point(300, 300));
             enemies = new List<Enemy>();
             enemies.Add(testWheelCactus);
@@ -82,9 +80,9 @@ namespace Mutiny_
             oldKeyboardState = currentKeyboardState;
             currentKeyboardState = Keyboard.GetState();
             player.Update(currentKeyboardState, oldKeyboardState, gameTime);
-            foreach (Enemy e in enemies)
+            foreach (Enemy enemy in enemies)
             {
-                e.Update();
+                enemy.Update();
             }
             player.EnemyCollisionCheck(enemies);
             EnemyHurtCheck();
@@ -95,26 +93,33 @@ namespace Mutiny_
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            player.Draw(spriteBatch);
-            foreach (Tile tile in mapGrid)
+            foreach (Tile tile in mapBackground)
             {
                 tile.Draw(spriteBatch);
             }
-            foreach (Enemy e in enemies)
+
+            player.Draw(spriteBatch);
+
+            foreach (Enemy enemy in enemies)
             {
-                e.Draw(spriteBatch);
+                enemy.Draw(spriteBatch);
             }
+            //kommenterat ut då mapForeground just nu inte har några värden i sig
+            //foreach (Tile tile in mapForeground)
+            //{
+            //    tile.Draw(spriteBatch);
+            //}
             spriteBatch.End();
-            spriteBatch.End();
+
             base.Draw(gameTime);
         }
         private void EnemyHurtCheck()
         {
-            foreach (Enemy e in enemies)
+            foreach (Enemy enemy in enemies)
             {
-                if (player.hurtbox.Intersects(e.hitbox))
+                if (player.hurtbox.Intersects(enemy.hitbox))
                 {
-                    e.GetHurt();
+                    enemy.GetHurt();
                 }
             }
         }
