@@ -85,3 +85,33 @@ E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutin
 E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\hurtboxgraphic.xnb
 E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\islandMap1.xnb
 E:\Skola\Mutinee\Inte mitt\Mutiny--Development\Mutiny--Development\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\islandTiles.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\islandMap1.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\hurtboxgraphic.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\player very simple.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\PlayerSimpleSheet.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\spriteFont.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\WheelCactus tex.xnb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Mutiny!.exe
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Mutiny!.pdb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\obj\x86\Debug\Mutiny!.csprojAssemblyReference.cache
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\obj\x86\Debug\Mutiny!.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\obj\x86\Debug\Mutiny!.csproj.CopyComplete
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\obj\x86\Debug\Mutiny!.exe
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\obj\x86\Debug\Mutiny!.pdb
+C:\Users\Dell\Documents\GitHub\Mutiny\Mutiny!\Mutiny!\bin\Windows\x86\Debug\Content\mapSpriteSheet.xnb

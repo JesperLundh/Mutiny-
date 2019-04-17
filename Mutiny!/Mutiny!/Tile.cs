@@ -15,12 +15,14 @@ namespace Mutiny_
         Rectangle spreadSheetRectangle, screenRectangle;
         Texture2D overWorldMap;
         Vector2 drawPos;
+        bool wall;
 
-        public Tile(Rectangle spreadSheetRectangle, Texture2D overWorldMap, Vector2 drawPos, int tileSize)
+        public Tile(Rectangle spreadSheetRectangle, Texture2D mapSpritesheet, Vector2 drawPos, int tileSize, bool wall)
         {
             this.spreadSheetRectangle = spreadSheetRectangle;
-            this.overWorldMap = overWorldMap;
+            this.overWorldMap = mapSpritesheet;
             this.drawPos = drawPos;
+            this.wall = wall;
             screenRectangle = new Rectangle((int)drawPos.X, (int)drawPos.Y, tileSize, tileSize);
         }
 
