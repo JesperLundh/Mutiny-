@@ -39,5 +39,15 @@ namespace Mutiny_
             pos.X = 1000;
             pos.Y = 1000;
         }
+        public override void EnemyHurtCheck(List<Enemy> enemies, Player player)
+        {
+            foreach (Enemy enemy in enemies)
+            {
+                if (player.hurtbox.Intersects(enemy.hitbox))
+                {
+                    enemy.GetHurt();
+                }
+            }
+        }
     }
 }

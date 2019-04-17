@@ -443,3 +443,15 @@ MigrationBackup/
 sh.exe.stackdump
 Mutiny!/Mutiny!/obj/x86/Debug/Mutiny!.csproj.CoreCompileInputs.cache
 *.cache
+Mutiny!/Mutiny!/Game1.cs
+Mutiny!/Mutiny!/obj/x86/Debug/Mutiny!.exe
+Mutiny!/Mutiny!/obj/x86/Debug/Mutiny!.pdb
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.XInput.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.XAudio2.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.MediaFoundation.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.DXGI.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.Direct3D11.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/SharpDX.Direct2D1.xml
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/Mutiny!.pdb
+Mutiny!/Mutiny!/bin/Windows/x86/Debug/Mutiny!.exe

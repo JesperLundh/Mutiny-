@@ -22,5 +22,7 @@ namespace Mutiny_
         public abstract void Update();
         public abstract void Draw(SpriteBatch spriteBatch);
         public abstract void GetHurt();
+
+        public abstract void EnemyHurtCheck(List<Enemy> enemies, Player player);
     }
 }

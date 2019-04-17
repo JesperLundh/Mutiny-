@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Dell/Documents/GitHub/Mutiny/Mutiny!/Mutiny!/Content/hurtboxgraphic.png</SourceFile>
+  <SourceFile>C:/Users/Dell/Documents/GitHub/Mutiny/Mutiny!/Mutiny!/Content/HurtBoxGraphic.png</SourceFile>
   <SourceTime>2019-04-10T11:00:41.7018278+02:00</SourceTime>
-  <DestFile>C:/Users/Dell/Documents/GitHub/Mutiny/Mutiny!/Mutiny!/Content/bin/Windows/hurtboxgraphic.xnb</DestFile>
-  <DestTime>2019-04-12T11:54:08.3458143+02:00</DestTime>
+  <DestFile>C:/Users/Dell/Documents/GitHub/Mutiny/Mutiny!/Mutiny!/Content/bin/Windows/HurtBoxGraphic.xnb</DestFile>
+  <DestTime>2019-04-17T15:35:02.3865955+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

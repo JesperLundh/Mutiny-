@@ -13,28 +13,25 @@ namespace Mutiny_
     // Jesper Lundhs arbete
     class MapManager
     {
+        #region Declaring variables
         Rectangle drawRectangle_a, drawRectangle_b, drawRectangle_c, drawRectangle_d, drawRectangle_e;
         Texture2D islandTiles;
-        int tileSize, tileAmountWidth, tileAmountHeight;
+        Tile[,] tileLayer;
+        int tileSize, tileAmountWidth, tileAmountHeight, i, j;
+        #endregion
+
+        #region Constructor
         public MapManager(Texture2D islandTiles, int tileSize, int tileAmountWidth, int tileAmountHeight)
         {
             this.islandTiles = islandTiles;
             this.tileSize = tileSize;
             this.tileAmountWidth = tileAmountWidth;
             this.tileAmountHeight = tileAmountHeight;
-            SetMapVariables();
-        }
-        #region Loading Variables for Tiles
-        void SetMapVariables()
-        {
-            drawRectangle_a = new Rectangle(0, 0, tileSize, tileSize);
-            drawRectangle_b = new Rectangle(tileSize, 0, tileSize, tileSize);
-            drawRectangle_c = new Rectangle(tileSize*2, 0, tileSize, tileSize);
-            drawRectangle_d = new Rectangle(tileSize*3, 0, tileSize, tileSize);
-            drawRectangle_e = new Rectangle(tileSize*4, 0, tileSize, tileSize);
+            TileRectangleLoader();
         }
         #endregion
-        #region Map Background Builder
+
+        #region Methods
         // vid namngivning av en ny Tile, bokstäver för terräng, siffror för fiender, symboler för spelare/interaktiva tiles
         public Tile[,] MapBackgroundBuilder()
         {
@@ -45,37 +42,36 @@ namespace Mutiny_
                 strings.Add(sr.ReadLine());
             }
             sr.Close();
-            Tile[,] backgroundTileLayer = new Tile[strings[0].Length, strings.Count];
-            //försökte effektivisera detta arbete, finns en övning på detta i supermario projektet, ska titta på det
-            for (int i = 0; i < backgroundTileLayer.GetLength(1); i++)
+            tileLayer = new Tile[strings[0].Length, strings.Count];
+            for (i = 0; i < tileLayer.GetLength(1); i++)
             {
-                for (int j = 0; j < backgroundTileLayer.GetLength(0); j++)
+                for (j = 0; j < tileLayer.GetLength(0); j++)
                 {
                     if (strings[i][j] == 'a')
                     {
-                        Rectangler(drawRectangle_a, i, j, backgroundTileLayer, false);
+                        TileCreator(drawRectangle_a, false);
                     }
                     else if (strings[i][j] == 'b')
                     {
-                        Rectangler(drawRectangle_b, i, j, backgroundTileLayer, false);
+                        TileCreator(drawRectangle_b, false);
                     }
                     else if (strings[i][j] == 'c')
                     {
-                        Rectangler(drawRectangle_c, i, j, backgroundTileLayer, false);
+                        TileCreator(drawRectangle_c, false);
                     }
                     else if (strings[i][j] == 'd')
                     {
-                        Rectangler(drawRectangle_d, i, j, backgroundTileLayer, false);
+                        TileCreator(drawRectangle_d, false);
                     }
                     else if (strings[i][j] == 'e')
                     {
-                        Rectangler(drawRectangle_e, i, j, backgroundTileLayer, false);
+                        TileCreator(drawRectangle_e, false);
                     }
                 }
             }
-            return backgroundTileLayer;
+            return tileLayer;
         }
-        #endregion
+
         public Tile[,] MapForegroundBuilder()
         {
             List<string> strings = new List<string>();
@@ -85,10 +81,10 @@ namespace Mutiny_
                 strings.Add(sr.ReadLine());
             }
             sr.Close();
-            Tile[,] foregroundTileLayer = new Tile[strings[0].Length, strings.Count];
-            for (int i = 0; i < foregroundTileLayer.GetLength(1); i++)
+            Tile[,] tileLayer = new Tile[strings[0].Length, strings.Count];
+            for (int i = 0; i < tileLayer.GetLength(1); i++)
             {
-                for (int j = 0; j < foregroundTileLayer.GetLength(0); j++)
+                for (int j = 0; j < tileLayer.GetLength(0); j++)
                 {
                     if (strings[i][j] == '-')
                     {
@@ -99,15 +95,24 @@ namespace Mutiny_
 
                     }
                 }
-            }
-            
-            return foregroundTileLayer;
+            }            
+            return tileLayer;
         }
-        #region TileCreatorMethod
-        private void Rectangler(Rectangle drawRectangle, int i, int j, Tile[,] tiles, bool wall)
+
+
+        private void TileCreator(Rectangle drawRectangle, bool wall)
         {
-            tiles[j, i] = new Tile(drawRectangle, islandTiles, new Vector2(tileSize * j, tileSize * i), tileSize, wall);
+            tileLayer[j, i] = new Tile(drawRectangle, islandTiles, new Vector2(tileSize * j, tileSize * i), tileSize, wall);
         }
+        
+        private void TileRectangleLoader()
+        {
+            drawRectangle_a = new Rectangle(0, 0, tileSize, tileSize);
+            drawRectangle_b = new Rectangle(tileSize, 0, tileSize, tileSize);
+            drawRectangle_c = new Rectangle(tileSize * 2, 0, tileSize, tileSize);
+            drawRectangle_d = new Rectangle(tileSize * 3, 0, tileSize, tileSize);
+            drawRectangle_e = new Rectangle(tileSize * 4, 0, tileSize, tileSize);
+        }
+        #endregion
     }
-    #endregion
 }
