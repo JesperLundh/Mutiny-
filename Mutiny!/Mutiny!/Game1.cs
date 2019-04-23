@@ -18,7 +18,7 @@ namespace Mutiny_
         SpriteBatch spriteBatch;
         Player player;
         Point playerStartPos;
-        Texture2D playerTex, wheelCactusTex, hurtTex, islandTiles;
+        Texture2D playerTex, wheelCactusTex, hurtTex, jungleTileSheet;
         KeyboardState currentKeyboardState, oldKeyboardState;
         SpriteFont spriteFont;
         List<Enemy> enemies;
@@ -88,10 +88,10 @@ namespace Mutiny_
         {
             //dessa fem integers ändrar du på om du ändrat tilestorleken, eller mängden tiles
             tileSize = 32;
-            screenWidth = 24;
-            screenHeight = 16;
-            tileAmountWidth = 5;
-            tileAmountHeight = 1;
+            screenWidth = 7;
+            screenHeight = 4;
+            tileAmountWidth = 7;
+            tileAmountHeight = 4;
             playerStartPos = new Point(100, 100);
         }
 
@@ -100,7 +100,7 @@ namespace Mutiny_
             playerTex = Content.Load<Texture2D>(@"PlayerSimpleSheet");
             spriteFont = Content.Load<SpriteFont>(@"SpriteFont");
             hurtTex = Content.Load<Texture2D>(@"HurtBoxGraphic");
-            islandTiles = Content.Load<Texture2D>("MapSpriteSheet");
+            jungleTileSheet = Content.Load<Texture2D>("JungleTileSheet");
             wheelCactusTex = Content.Load<Texture2D>(@"WheelCactusTex");
         }
 
@@ -108,7 +108,7 @@ namespace Mutiny_
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = new Player(playerTex, playerStartPos, spriteFont, hurtTex);
-            mapManager = new MapManager(islandTiles, tileSize, tileAmountWidth, tileAmountHeight);
+            mapManager = new MapManager(jungleTileSheet, tileSize, tileAmountWidth, tileAmountHeight);
             mapBackground = mapManager.MapBackgroundBuilder();
             mapForeground = mapManager.MapForegroundBuilder();
             testWheelCactus = new WheelCactus(wheelCactusTex, new Point(300, 300));
